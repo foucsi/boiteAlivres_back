@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
     uniqueId: { type: String }, //token uuid4
-    photo: { type: String, default: "https://www.gravatar.com/avatar/"}
+    photo: { type: String, default: "https://www.gravatar.com/avatar/"},
+    premium: { type: Boolean, default: true},
 });
 
 module.exports = mongoose.model("users", UserSchema);
