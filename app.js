@@ -2,6 +2,10 @@ require("dotenv").config();
 require("./models/connection.js");
 
 var express = require('express');
+
+const userNotFound = require("./middlewares/usersNotFound");
+const errorHandler = require("./middlewares/errorHandler");
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -21,5 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use(userNotFound);
+app.use(errorHandler);
 
 module.exports = app;

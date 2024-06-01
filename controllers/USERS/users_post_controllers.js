@@ -19,8 +19,9 @@ exports.loginUser = async (req, res, next) => {
             });
             return res.json({ result: true, user: data, token });
         } else {
-            const err = new Error("User not found");
-            return next(err);
+            const error = new Error("Mot de passe invalide ou email erroné");
+            next(error);
+            // return res.status(400).json({ result: false, error: "Mot de passe invalide ou email erroné" });
         }
     } catch (err) {
         console.error(err)
