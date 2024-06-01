@@ -568,7 +568,7 @@ node-fetch@2:
   dependencies:
     whatwg-url "^5.0.0"
 
-nodemon@^3.0.3:
+nodemon@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.2.tgz#e4041ef00b930c5bdc1ab68d897a88eb7b17c8c2"
   integrity sha512-/Ib/kloefDy+N0iRTxIUzyGcdW9lzlnca2Jsa5w73bs3npXjg+WInmiX6VY13mIb6SykkthYX/U5t0ukryGqBw==
