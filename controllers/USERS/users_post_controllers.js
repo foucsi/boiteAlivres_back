@@ -8,7 +8,7 @@ const uuidv4 = require("uuid").v4;
 //login User
 exports.loginUser = async (req, res, next) => {
     if (!checkBody(req.body, ["email", "password"])) {
-        return res.json({ result: false, error: "Missing fields" });
+        return res.status(400).json({ result: false, error: "Missing fields" });
     }
     try {
         const data = await User.findOne({ email: req.body.email });
@@ -32,7 +32,7 @@ exports.loginUser = async (req, res, next) => {
 exports.registerUser = async (req, res, next) => {
     const { username, email, password } = req.body;
     if (!checkBody(req.body, ["username", "password", "email"])) {
-        return res.json({ result: false, error: "Missing fields" });
+        return res.status(400).json({ result: false, error: "Missing fields" });
     }
     try {
         //user existing by email ?
