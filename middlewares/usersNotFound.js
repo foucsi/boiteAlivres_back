@@ -1,12 +1,14 @@
-module.exports = function usersNotFound(err, req, res, next) {
-    if (err.message === 'User not found') {
-        console.error(err);
-        res.status(404).json({result: false, error: "User not found"});
-    }else if(err.message === 'Mot de passe invalide ou email erroné'){
-        console.error(err);
-        res.status(400).json({result: false, error: "Mot de passe invalide ou email erroné"});
+const errorResponses = {
+    'User not found': { status: 404, result: false, error: 'User not found' },
+    "Mot de passe invalide ou email erroné": { status: 404, result: false, error: 'Mot de passe invalide ou email erroné' },
+};
 
-    } else {
+module.exports = function messageNotFound(err, req, res, next) {
+    const errorResponse = errorResponses[err.message];
+    if (errorResponse) {
+        console.error(err);
+        res.status(errorResponse.status).json(errorResponse);
+    }else {
         next(err);
     }
 }
