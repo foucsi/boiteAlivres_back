@@ -5,7 +5,7 @@ const BookPlace = require("../../models/bookPlaces");
 exports.addBookPlace = async (req, res, next) => {
     const {uniqueId}= req.params
     // const {name,street,region,postalCode} = address
-    const {latitude,longitude,description,address} = req.body
+    const {latitude,longitude,description,adress} = req.body
     try{
         const user = await User.findOne({uniqueId})
         if(!user){
@@ -17,7 +17,7 @@ exports.addBookPlace = async (req, res, next) => {
             latitude,
             longitude,
             description,
-            address
+            adress
         })
         const savedBookPlace = await newBookPlace.save()
         return res.json({result:true,bookPlace:savedBookPlace})
