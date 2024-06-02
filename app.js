@@ -1,19 +1,21 @@
 require("dotenv").config();
 require("./models/connection.js");
 
-var express = require('express');
+let express = require('express');
 
 const userNotFound = require("./middlewares/usersNotFound");
 const errorHandler = require("./middlewares/errorHandler");
+const bookPlacesNotFound = require('./middlewares/bookPlacesNotFound');
 
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let bookPlacesRouter = require('./routes/bookPlaces');
 
-var app = express();
+let app = express();
 const cors = require("cors");
 app.use(cors());
 
@@ -25,8 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/bookPlaces', bookPlacesRouter);
 
 app.use(userNotFound);
 app.use(errorHandler);
+app.use(bookPlacesNotFound);
 
 module.exports = app;
