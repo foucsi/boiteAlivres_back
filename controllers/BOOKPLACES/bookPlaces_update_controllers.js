@@ -5,7 +5,7 @@ const BookPlaces = require("../../models/bookPlaces");
 exports.updateBookPlace = async (req, res, next) => {
     const {bookPlaceId}=req.params;
         try{
-        const bookPlace = await BookPlaces.findByIdAndUpdate(bookPlaceId, {status: true}, {new: true});
+        const bookPlace = await BookPlaces.findByIdAndUpdate(bookPlaceId, {validation: true}, {new: true});
             if(!bookPlace) {
                 const error = new Error("BookPlace not found");
                 return next(error);
