@@ -18,6 +18,7 @@ const BookPlaceSchema = new mongoose.Schema({
     date_added: { type: Date, default: Date.now },
     photo:{ type: String, default: "https://via.placeholder.com/150"},
     icon: { type: String, default: "book"},
-    adress: AddressSchema
+    adress: AddressSchema,
+    validation: { type: Boolean, default: false },
 })
 module.exports = mongoose.model("bookPlaces", BookPlaceSchema);
