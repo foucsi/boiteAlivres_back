@@ -2,7 +2,7 @@ const BookPlace = require("../../models/bookPlaces");
 
 //GET all bookPlaces
 
-exports.getBookPlaces = async (req, res, next) => {
+exports.getAllBookPlaces = async (req, res, next) => {
     try {
         const bookPlaces = await BookPlace.find()
         if(!bookPlaces){

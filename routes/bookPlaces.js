@@ -6,7 +6,7 @@ const bookPlaces_delete_controllers = require("../controllers/BOOKPLACES/bookPla
 const bookPlaces_get_controllers = require("../controllers/BOOKPLACES/bookPlaces_get_controllers");
 
 //GET
-router.get("/getBookPlaces", bookPlaces_get_controllers.getBookPlaces);
+router.get("/getAllBookPlaces", bookPlaces_get_controllers.getAllBookPlaces);
 
 //POST
 router.post("/addBookPlace/:uniqueId", bookPlaces_post_controllers.addBookPlace);
