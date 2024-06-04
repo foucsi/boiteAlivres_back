@@ -10,7 +10,7 @@ exports.updateBookPlace = async (req, res, next) => {
                 const error = new Error("BookPlace not found");
                 return next(error);
             }
-        res.status(200).json({result:true, message: "BookPlace updated successfully"});
+        res.status(200).json({result:true, message: "BookPlace updated successfully", bookPlace: bookPlace});
         }catch(err){
             console.error(err);
             next(err)
