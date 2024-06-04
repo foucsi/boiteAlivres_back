@@ -6,6 +6,7 @@ const users_post_controllers = require("../controllers/USERS/users_post_controll
 
 //GET
 router.get("/", users_get_controllers.getAllUsers);
+router.get("/getAllUsers", users_get_controllers.getAllUsers);
 
 //POST
 router.post("/login", users_post_controllers.loginUser);
