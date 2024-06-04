@@ -4,7 +4,7 @@ const BookPlace = require("../../models/bookPlaces");
 
 exports.getAllBookPlaces = async (req, res, next) => {
     try {
-        const bookPlaces = await BookPlace.find()
+        const bookPlaces = await BookPlace.find().populate("addedBy")
         const filteredBookPlaces = bookPlaces.filter(bookPlace => bookPlace.validation === true)
         const bookPlacesValidationFalse = bookPlaces.filter(bookPlace => bookPlace.validation === false)
         if(!bookPlaces){
