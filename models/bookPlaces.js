@@ -16,7 +16,7 @@ const BookPlaceSchema = new mongoose.Schema({
     longitude: { type: Number, required: true },
     description: { type: String, required: true },
     date_added: { type: Date, default: Date.now },
-    photo:{ type: String, default: "https://via.placeholder.com/150"},
+    photo:{ type: String, default: "https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg"},
     icon: { type: String, default: "book"},
     adress: AddressSchema,
     validation: { type: Boolean, default: false },
