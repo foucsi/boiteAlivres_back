@@ -17,7 +17,7 @@ exports.addComments = async (req, res, next) => {
         return next(err)}
     const newComment = new Comment({
         added_by: user._id,
-        bookPlaceId: bookPlace._id,
+        bookPlaceId,
         comment
     })
     await newComment.save();
