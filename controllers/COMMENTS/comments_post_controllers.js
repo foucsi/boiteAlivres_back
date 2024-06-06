@@ -15,13 +15,16 @@ exports.addComments = async (req, res, next) => {
     if(!bookPlace) {
         const err = new Error("BookPlace not found");
         return next(err)}
+    const newComment = new Comment({
+        added_by: user._id,
+        bookPlaceId: bookPlace._id,
+        comment
+    })
+    await newComment.save();
+    return res.status(200).json({result: true, comment: newComment})
     }catch(err){
         console.error(err)
         next(err)
     }
 }
 
-//Je trouve l'user connecté
-//Je trouve le bookPlace
-//Je crée un nouveau commentaire
-//Je sauvegarde le commentaire
