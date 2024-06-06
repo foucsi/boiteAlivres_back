@@ -14,6 +14,7 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let bookPlacesRouter = require('./routes/bookPlaces');
+let commentsRouter = require('./routes/comments');
 
 let app = express();
 const cors = require("cors");
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookPlaces', bookPlacesRouter);
+app.use('/comments', commentsRouter);
 
 app.use(userNotFound);
 app.use(errorHandler);
