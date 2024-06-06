@@ -6,6 +6,7 @@ let express = require('express');
 const userNotFound = require("./middlewares/usersNotFound");
 const errorHandler = require("./middlewares/errorHandler");
 const bookPlacesNotFound = require('./middlewares/bookPlacesNotFound');
+const commentsNotFound = require('./middlewares/commentsNotFound');
 
 let path = require('path');
 let cookieParser = require('cookie-parser');
@@ -34,5 +35,7 @@ app.use('/comments', commentsRouter);
 app.use(userNotFound);
 app.use(errorHandler);
 app.use(bookPlacesNotFound);
+app.use(commentsNotFound);
+
 
 module.exports = app;

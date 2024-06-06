@@ -3,7 +3,7 @@ const Comment = require("../../models/comments");
 exports.getAllComments = async (req, res, next) => {
     try{
         const comments = await Comment.find().populate('added_by');
-        if(!comments) {
+        if(!comments || comments.length === 0){
             const err = new Error("Not comments in database");
             return next(err)
         }
