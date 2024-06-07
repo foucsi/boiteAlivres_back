@@ -4,9 +4,9 @@ require("./models/connection.js");
 let express = require('express');
 
 const userNotFound = require("./middlewares/usersNotFound");
-const errorHandler = require("./middlewares/errorHandler");
 const bookPlacesNotFound = require('./middlewares/bookPlacesNotFound');
 const commentsNotFound = require('./middlewares/commentsNotFound');
+const errorHandler = require("./middlewares/errorHandler");
 
 let path = require('path');
 let cookieParser = require('cookie-parser');
@@ -33,9 +33,11 @@ app.use('/bookPlaces', bookPlacesRouter);
 app.use('/comments', commentsRouter);
 
 app.use(userNotFound);
-app.use(errorHandler);
 app.use(bookPlacesNotFound);
 app.use(commentsNotFound);
+
+//Warning, this generic middlewares should be the last one
+app.use(errorHandler);
 
 
 module.exports = app;
