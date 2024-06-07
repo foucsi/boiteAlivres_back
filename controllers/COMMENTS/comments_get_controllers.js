@@ -1,4 +1,5 @@
 const Comment = require("../../models/comments");
+const BookPlace = require("../../models/bookPlaces");
 
 exports.getAllComments = async (req, res, next) => {
     try{
@@ -8,6 +9,15 @@ exports.getAllComments = async (req, res, next) => {
             return next(err)
         }
         return res.status(200).json({result: true, comments:comments})
+    }catch(err){
+        console.error(err)
+        next(err)
+    }
+}
+
+exports.getAllCommentsByBookPlace = async (req, res, next) => {
+    try{
+
     }catch(err){
         console.error(err)
         next(err)
