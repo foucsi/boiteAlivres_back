@@ -16,8 +16,13 @@ exports.getAllComments = async (req, res, next) => {
 }
 
 exports.getAllCommentsByBookPlace = async (req, res, next) => {
+    const {bookPlaceId} = req.params;
     try{
-
+        const bookPlace = await BookPlace.findById({_id: bookPlaceId});
+        if(!bookPlace){
+            const err = new Error("BookPlace not found");
+            return next(err)
+        }
     }catch(err){
         console.error(err)
         next(err)
