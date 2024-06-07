@@ -25,7 +25,7 @@ exports.getAllCommentsByBookPlace = async (req, res, next) => {
         }
         const comments = await Comment.find({bookPlaceId
                 : bookPlaceId}).populate('added_by');
-        if(!comments ){
+        if(!comments){
             const err = new Error("Not comments in database");
             return next(err)
         }
