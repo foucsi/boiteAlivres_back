@@ -16,5 +16,5 @@ router.delete("/removeBookPlace/:id", bookPlaces_delete_controllers.deleteBookPl
 
 //UPDATE
 router.put("/updateBookPlace/:bookPlaceId", bookPlaces_update_controllers.updateBookPlace);
-router.put("/updateBookPlace/:bookPlaceId", bookPlaces_update_controllers.updateDescription);
+router.put("/updateDescriptionBookPlace/:bookPlaceId", bookPlaces_update_controllers.updateDescription);
 module.exports = router;
