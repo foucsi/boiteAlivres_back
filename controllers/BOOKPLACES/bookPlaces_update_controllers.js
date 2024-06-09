@@ -33,5 +33,4 @@ exports.updateDescription = async (req, res, next) => {
         console.error(err);
         next(err)
     }
-
 }
