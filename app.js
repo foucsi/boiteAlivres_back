@@ -19,6 +19,8 @@ let commentsRouter = require('./routes/comments');
 let photosRouter = require('./routes/photos');
 
 let app = express();
+const fileUpload = require("express-fileupload");
+app.use(fileUpload());
 const cors = require("cors");
 app.use(cors());
 
