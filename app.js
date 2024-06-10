@@ -16,6 +16,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let bookPlacesRouter = require('./routes/bookPlaces');
 let commentsRouter = require('./routes/comments');
+let photosRouter = require('./routes/photos');
 
 let app = express();
 const cors = require("cors");
@@ -31,6 +32,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookPlaces', bookPlacesRouter);
 app.use('/comments', commentsRouter);
+app.use('/photos', photosRouter);
 
 app.use(userNotFound);
 app.use(bookPlacesNotFound);
