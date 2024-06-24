@@ -6,6 +6,7 @@ let express = require('express');
 const userNotFound = require("./middlewares/usersNotFound");
 const bookPlacesNotFound = require('./middlewares/bookPlacesNotFound');
 const commentsNotFound = require('./middlewares/commentsNotFound');
+const featuresNotFound = require('./middlewares/featuresNotFound');
 const errorHandler = require("./middlewares/errorHandler");
 
 let path = require('path');
@@ -41,6 +42,7 @@ app.use('/features', featuresRouter);
 app.use(userNotFound);
 app.use(bookPlacesNotFound);
 app.use(commentsNotFound);
+app.use(featuresNotFound);
 
 //Warning, this generic middlewares should be the last one
 app.use(errorHandler);
