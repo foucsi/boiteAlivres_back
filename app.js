@@ -17,6 +17,7 @@ let usersRouter = require('./routes/users');
 let bookPlacesRouter = require('./routes/bookPlaces');
 let commentsRouter = require('./routes/comments');
 let photosRouter = require('./routes/photos');
+let featuresRouter = require('./routes/features');
 
 let app = express();
 const fileUpload = require("express-fileupload");
@@ -35,6 +36,7 @@ app.use('/users', usersRouter);
 app.use('/bookPlaces', bookPlacesRouter);
 app.use('/comments', commentsRouter);
 app.use('/photos', photosRouter);
+app.use('/features', featuresRouter);
 
 app.use(userNotFound);
 app.use(bookPlacesNotFound);
