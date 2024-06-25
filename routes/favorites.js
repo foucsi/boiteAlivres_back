@@ -6,7 +6,7 @@ const favorites_post_controllers = require("../controllers/FAVORITES/favorites_p
 //GET
 
 //POST
-router.post("/addFavorite", favorites_post_controllers.addFavorite);
+router.post("/addFavorite/:uniqueId/:bookPlaceId", favorites_post_controllers.addFavorite);
 //DELETE
 
 //UPDATE
