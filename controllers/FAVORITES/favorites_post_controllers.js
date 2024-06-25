@@ -18,8 +18,8 @@ exports.addFavorite = async(req, res, next) => {
             const err = new Error("BookPlace not found")
             return next(err)
         }
-        const alreadyFavorite = await Favorite.findOne({bookPlace: bookPlace._id, user: user._id})
-        if(alreadyFavorite){
+        const existingFavorite = await Favorite.findOne({bookPlace: bookPlace._id, user: user._id})
+        if(existingFavorite){
             return res.status(404).json({result: false, message: "Already favorited"})
         }
 
