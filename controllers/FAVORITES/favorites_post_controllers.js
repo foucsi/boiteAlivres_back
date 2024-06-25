@@ -5,12 +5,15 @@ const User = require("../../models/users")
 exports.addFavorite = async(req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params
     try{
-        const user = await User.findOne({uniqueId})
+        const [user, bookPlace] = await Promise.all([
+            User.findOne({uniqueId}),
+            BookPlace.findById({_id: bookPlaceId})
+        ])
+
         if(!user){
             const err = new Error("User not found")
             return next(err)
         }
-        const bookPlace = await BookPlace.findById({_id: bookPlaceId})
         if(!bookPlace){
             const err = new Error("BookPlace not found")
             return next(err)
