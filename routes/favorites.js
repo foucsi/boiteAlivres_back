@@ -5,7 +5,7 @@ const favorites_post_controllers = require("../controllers/FAVORITES/favorites_p
 const favorites_get_controllers = require("../controllers/FAVORITES/favorites_get_controllers");
 
 //GET
-router.get("/allFavoritesByUser/:uniqueId", favorites_get_controllers.getFavoritesByUserId);
+router.get("/allFavoritesByUser/:uniqueId/:bookPlaceId", favorites_get_controllers.getFavoritesByUserId);
 
 
 //POST
