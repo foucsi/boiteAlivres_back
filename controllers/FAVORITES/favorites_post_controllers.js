@@ -5,7 +5,7 @@ const User = require("../../models/users")
 exports.addFavorite = async(req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params
     try{
-        const user = User.findOne(uniqueId)
+        const user = await User.findOne({uniqueId})
         if(!user){
             const err = new Error("User not found")
             return next(err)
