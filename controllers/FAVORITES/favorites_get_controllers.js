@@ -32,7 +32,17 @@ exports.getFavoritesByUserId = async (req, res, next) => {
 exports.getFavorites = async (req, res, next) => {
     const {uniqueId} = req.params
     try{
-
+        const existingUser = await User.findOne({uniqueId})
+        if(!existingUser){
+            const err = new Error("User not found")
+            return next(err)
+        }
+        const favorites = await Favorite.find({user: existingUser._id}).populate('bookPlace')
+        if(!favorites || favorites.length === 0){
+            const err = new Error("Not favorites in database")
+            return next(err)
+        }
+        return res.status(200).json({result: true, favorites:favorites})
     }catch(err){
         console.error(err)
         next(err)
