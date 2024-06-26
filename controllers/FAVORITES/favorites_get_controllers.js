@@ -9,28 +9,32 @@ exports.getFavoritesByUserId = async (req, res, next) => {
             User.findOne({uniqueId}),
             BookPlace.findById(bookPlaceId)
         ])
-
         if (!existingUser) {
             return res.status(404).json({result: false, message: "User not found"})
         }
-
         if (!existingBookPlace) {
             return res.status(404).json({result: false, message: "BookPlace not found"})
         }
-
         const existingFavorite = await Favorite.findOne({
             bookPlace: existingBookPlace._id,
             user: existingUser._id
         })
-
         if (!existingFavorite) {
             return res.status(404).json({result: false, message: "Favorite not found"})
         }
-
         return res.status(200).json({result: true, favorite: existingFavorite})
-
     } catch(err) {
         console.error(err)
-        return res.status(500).json({result: false, message: "Internal server error"})
+        next(err)
+    }
+}
+
+exports.getFavorites = async (req, res, next) => {
+    const {uniqueId} = req.params
+    try{
+
+    }catch(err){
+        console.error(err)
+        next(err)
     }
 }
