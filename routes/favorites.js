@@ -13,7 +13,8 @@ router.get("/favoritesByUser/:uniqueId", favorites_get_controllers.getFavorites)
 router.post("/addFavorite/:uniqueId/:bookPlaceId", favorites_post_controllers.addFavorite);
 
 //DELETE
-router.post("/deleteFavorite/:favoriteId", favorites_delete_controllers.deleteFavorite);
+router.delete("/deleteFavorite/:favoriteId", favorites_delete_controllers.deleteFavorite);
+
 //UPDATE
 
 module.exports = router;
