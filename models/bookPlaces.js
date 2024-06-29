@@ -20,5 +20,7 @@ const BookPlaceSchema = new mongoose.Schema({
     icon: { type: String, default: "book"},
     adress: AddressSchema,
     validation: { type: Boolean, default: false },
+    //A voir le status si on le garde ???
+    status:{type:"string", default: "pending"},
 })
 module.exports = mongoose.model("bookPlaces", BookPlaceSchema);
