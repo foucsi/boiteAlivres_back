@@ -38,7 +38,7 @@ exports.getFavorites = async (req, res, next) => {
             return next(err)
         }
         const favorites = await Favorite.find({user: existingUser._id}).populate('bookPlace')
-        if(!favorites || favorites.length === 0){
+        if(!favorites){
             const err = new Error("Not favorites in database")
             return next(err)
         }
