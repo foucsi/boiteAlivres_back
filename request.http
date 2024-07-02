@@ -2,5 +2,7 @@
 
 GET http://localhost:3000/
 Accept: application/json
-##
-GET
+
+### GET ALL USERS
+GET http://localhost:3000/users/getAllUsers
+Accept: application/json
