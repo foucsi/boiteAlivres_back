@@ -17,7 +17,7 @@ const BookPlaceSchema = new mongoose.Schema({
     description: { type: String, required: true },
     date_added: { type: Date, default: Date.now },
     photo:{ type: String, default: "https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg"},
-    icon: { type: String, default: "book"},
+    icon: { type: String, default: "bookshelf"},
     adress: AddressSchema,
     validation: { type: Boolean, default: false },
     //A voir le status si on le garde ???
