@@ -1,5 +1,5 @@
 const sharp = require("sharp");
-const BookPlace = require("../../models/bookPlaces");
+const BookPlace = require("../../db/models/bookPlaces");
 const cloudinary = require("cloudinary").v2;
 const uniqid = require("uniqid");
 const fs = require("fs");

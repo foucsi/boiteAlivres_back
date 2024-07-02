@@ -1,6 +1,6 @@
-const User = require("../../models/users");
-const BookPlace = require("../../models/bookPlaces");
-const Comment = require("../../models/comments");
+const User = require("../../db/models/users");
+const BookPlace = require("../../db/models/bookPlaces");
+const Comment = require("../../db/models/comments");
 
 exports.addComments = async (req, res, next) => {
     const {uniqueId} = req.params;

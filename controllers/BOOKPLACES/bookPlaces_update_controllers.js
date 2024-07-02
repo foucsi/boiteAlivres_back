@@ -1,4 +1,4 @@
-const BookPlaces = require("../../models/bookPlaces");
+const BookPlaces = require("../../db/models/bookPlaces");
 
 
 // change status validation false to true

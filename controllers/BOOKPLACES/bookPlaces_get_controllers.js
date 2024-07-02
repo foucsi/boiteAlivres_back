@@ -1,4 +1,4 @@
-const BookPlace = require("../../models/bookPlaces");
+const BookPlace = require("../../db/models/bookPlaces");
 
 //GET all bookPlaces if validation is true
 

@@ -1,4 +1,4 @@
-const BookPlace = require("../../models/bookPlaces");
+const BookPlace = require("../../db/models/bookPlaces");
 
 exports.deleteBookPlace = async(req, res, next) => {
     const {id} = req.params

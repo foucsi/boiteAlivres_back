@@ -1,4 +1,4 @@
-const Feature = require("../../models/features")
+const Feature = require("../../db/models/features")
 
 exports.addFeature = async (req, res, next) => {
     const {feature, description} = req.body

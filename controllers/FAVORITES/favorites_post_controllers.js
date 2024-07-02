@@ -1,6 +1,6 @@
-const Favorite = require("../../models/favorites")
-const BookPlace = require("../../models/bookPlaces")
-const User = require("../../models/users")
+const Favorite = require("../../db/models/favorites")
+const BookPlace = require("../../db/models/bookPlaces")
+const User = require("../../db/models/users")
 
 exports.addFavorite = async(req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params

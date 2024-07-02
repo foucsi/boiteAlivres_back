@@ -1,5 +1,5 @@
-const User = require("../../models/users");
-const Comment = require("../../models/comments");
+const User = require("../../db/models/users");
+const Comment = require("../../db/models/comments");
 
 // delete comment
 

@@ -1,6 +1,6 @@
-const Favorite = require("../../models/favorites")
-const User = require("../../models/users")
-const BookPlace = require("../../models/bookPlaces")
+const Favorite = require("../../db/models/favorites")
+const User = require("../../db/models/users")
+const BookPlace = require("../../db/models/bookPlaces")
 
 exports.getFavoritesByUserId = async (req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params

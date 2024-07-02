@@ -1,5 +1,5 @@
-const User = require("../../models/users");
-const BookPlace = require("../../models/bookPlaces");
+const User = require("../../db/models/users");
+const BookPlace = require("../../db/models/bookPlaces");
 
 // Add a new bookPlaces
 exports.addBookPlace = async (req, res, next) => {

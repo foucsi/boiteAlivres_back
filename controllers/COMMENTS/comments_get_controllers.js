@@ -1,5 +1,5 @@
-const Comment = require("../../models/comments");
-const BookPlace = require("../../models/bookPlaces");
+const Comment = require("../../db/models/comments");
+const BookPlace = require("../../db/models/bookPlaces");
 
 exports.getAllComments = async (req, res, next) => {
     try{

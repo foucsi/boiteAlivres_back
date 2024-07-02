@@ -1,4 +1,4 @@
-const Favorite = require("../../models/favorites")
+const Favorite = require("../../db/models/favorites")
 
 exports.deleteFavorite = async(req, res, next) => {
     const {favoriteId} = req.params
