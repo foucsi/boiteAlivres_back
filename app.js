@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./models/connection.js");
+require("./db/connection.js");
 
 let express = require('express');
 
