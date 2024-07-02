@@ -5,6 +5,7 @@ Accept: application/json
 
 ### GET ALL USERS
 GET http://localhost:3000/users/getAllUsers
-Accept: application/json
 
 ### GET ALL BOOKPLACES
+GET http://localhost:3000/bookplaces/getAllBookplaces
+Accept: application/json
