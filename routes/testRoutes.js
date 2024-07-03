@@ -4,6 +4,6 @@ var router = express.Router();
 const test_get_controllers = require("../controllers/TESTS/test_get_controllers");
 
 //GET
-router.get("/testRoutes", test_get_controllers.testRoutes);
+router.get("/testRoutes", test_get_controllers.testRoute);
 
 module.exports = router;
