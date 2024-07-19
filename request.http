@@ -12,9 +12,9 @@ GET http://localhost:3000/bookplaces/getAllBookplaces
 Accept: application/json
 
 ### GET TEST ROUTES WITH THROW NEW ERROR
-GET  http://localhost:3000/test/testRoutes
-Content-Type: application/json
-
-{
-"number": 1
-}
+#GET  http://localhost:3000/test/testRoutes
+#Content-Type: application/json
+#
+#{
+#"number": 1
+#}
