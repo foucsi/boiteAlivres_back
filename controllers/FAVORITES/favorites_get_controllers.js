@@ -47,7 +47,6 @@ exports.getFavoritesByUserId = async (req, res, next) => {
             user: existingUser._id
         })
         if (!existingFavorite) {
-            // return middleware error ???
             return res.status(200).json({result: false, message: "Favorite not found"})
         }
         return res.status(200).json({result: true, favorite: existingFavorite})
