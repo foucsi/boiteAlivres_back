@@ -55,7 +55,7 @@ exports.getFavoritesByUserId = async (req, res, next) => {
         return res.status(200).json({result: true, favorite: existingFavorite})
     } catch(err) {
         console.error(err)
-        res.status(500).json({result: false, message: "Server error", error: err.message})
+        next(err)
     }
 }
 
