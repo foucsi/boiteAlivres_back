@@ -41,7 +41,8 @@ exports.getFavoritesByUserId = async (req, res, next) => {
             return next(err)
         }
         if (!existingBookPlace) {
-            return res.status(404).json({result: false, message: "BookPlace not found"})
+            const err = new Error("BookPlace not found")
+            return next(err)
         }
         const existingFavorite = await Favorite.findOne({
             bookPlace: existingBookPlace._id,
