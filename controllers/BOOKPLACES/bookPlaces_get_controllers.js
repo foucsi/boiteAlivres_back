@@ -24,7 +24,16 @@ exports.getAllBookPlaces = async (req, res, next) => {
 exports.getAllBookPlaceByUserId = async (req, res, next) => {
     const { uniqueId } = req.params
     try{
-        const user = await User
+        const user = await User.findById({uniqueId})
+        if(!user){
+            const err = new Error("User not found")
+            return next(err)
+        }
+        const bookPlaces = await BookPlace.find({addedBy: user._id})
+        if(!bookPlaces || bookPlaces.length === 0){
+            const err = new Error("BookPlaces not found")
+            return next(err)
+        }
     }catch(err){
         console.error(err)
         next(err)
