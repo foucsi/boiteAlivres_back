@@ -21,5 +21,5 @@ Content-Type: application/json
 
 ### GET TEST RTE GETALLBOOKPLACEBYUSERID
 
-GET http://localhost:3000/bookplaces/getAllBookPlaceByUserId/daeaa36f-f73c-41be-848d-4bfa266f0a8a
+GET http://localhost:3000/bookplaces/getAllBookPlaceByUserId/cca5e5e8-258a-4e34-9019-1d4d8f40b5d2
 Accept: application/json
