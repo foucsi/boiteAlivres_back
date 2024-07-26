@@ -34,6 +34,7 @@ exports.getAllBookPlaceByUserId = async (req, res, next) => {
             const err = new Error("BookPlaces not found")
             return next(err)
         }
+        return res.json({result:true,bookPlaces:bookPlaces})
     }catch(err){
         console.error(err)
         next(err)
