@@ -1,4 +1,5 @@
 const BookPlace = require("../../db/models/bookPlaces");
+const User = require("../../db/models/users");
 
 //GET all bookPlaces if validation is true
 
@@ -13,6 +14,18 @@ exports.getAllBookPlaces = async (req, res, next) => {
         }
         return res.json({result:true,bookPlaces:bookPlaces})
     } catch (err) {
+        console.error(err)
+        next(err)
+    }
+}
+
+//show bookPlace by id
+
+exports.getBookPlaceByUserId = async (req, res, next) => {
+    const { uniqueId } = req.params
+    try{
+        const user = await User
+    }catch(err){
         console.error(err)
         next(err)
     }
