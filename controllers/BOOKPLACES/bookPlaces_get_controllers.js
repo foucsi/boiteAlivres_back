@@ -24,7 +24,7 @@ exports.getAllBookPlaces = async (req, res, next) => {
 exports.getAllBookPlaceByUserId = async (req, res, next) => {
     const { uniqueId } = req.params
     try{
-        const user = await User.findById({uniqueId})
+        const user = await User.findOne({uniqueId})
         if(!user){
             const err = new Error("User not found")
             return next(err)

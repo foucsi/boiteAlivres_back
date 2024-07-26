@@ -18,3 +18,8 @@ Content-Type: application/json
 {
 "number": 1
 }
+
+### GET TEST RTE GETALLBOOKPLACEBYUSERID
+
+GET http://localhost:3000/bookplaces/getAllBookPlaceByUserId/cca5e5e8-258a-4e34-9019-1d4d8f40b5d2
+Accept: application/json
