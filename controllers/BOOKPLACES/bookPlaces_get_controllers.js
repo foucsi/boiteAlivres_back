@@ -31,7 +31,7 @@ exports.getAllBookPlaceByUserId = async (req, res, next) => {
         }
         const bookPlaces = await BookPlace.find({addedBy: user._id})
         if(!bookPlaces || bookPlaces.length === 0){
-            const err = new Error("BookPlaces not found")
+            const err = new Error("Not bookPlaces in database")
             return next(err)
         }
         return res.json({result:true,bookPlaces:bookPlaces})
