@@ -21,7 +21,7 @@ exports.getAllBookPlaces = async (req, res, next) => {
 
 //show bookPlace by id
 
-exports.getBookPlaceByUserId = async (req, res, next) => {
+exports.getAllBookPlaceByUserId = async (req, res, next) => {
     const { uniqueId } = req.params
     try{
         const user = await User
