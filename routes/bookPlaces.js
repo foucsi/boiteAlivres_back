@@ -7,6 +7,7 @@ const bookPlaces_get_controllers = require("../controllers/BOOKPLACES/bookPlaces
 const bookPlaces_update_controllers = require("../controllers/BOOKPLACES/bookPlaces_update_controllers");
 //GET
 router.get("/getAllBookPlaces", bookPlaces_get_controllers.getAllBookPlaces);
+router.get("/getAllBookPlaceByUserId/:uniqueId", bookPlaces_get_controllers.getAllBookPlaceByUserId);
 
 //POST
 router.post("/addBookPlace/:uniqueId", bookPlaces_post_controllers.addBookPlace);
