@@ -4,7 +4,6 @@ const asyncHandler = require("express-async-handler")
 //GET ALL USERS
 
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
-    try {
         //on exclut les champs sensible password et inutile
         const users = await User.find().select("-password -__v").lean();
         if (!users || users.length === 0) {
@@ -14,8 +13,4 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
         }
         const usersPremium = users.filter(user => user.premium === true);
         return res.json({ result: true, users: users, usersPremium: usersPremium });
-    } catch (err) {
-        console.error(err.message);
-        next(err);
-    }
 });
