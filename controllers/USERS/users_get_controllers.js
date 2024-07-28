@@ -1,8 +1,9 @@
 const User = require("../../db/models/users")
+const asyncHandler = require("express-async-handler")
 
 //GET ALL USERS
 
-exports.getAllUsers = async (req, res, next) => {
+exports.getAllUsers = asyncHandler(async (req, res, next) => {
     try {
         //on exclut les champs sensible password et inutile
         const users = await User.find().select("-password -__v").lean();
@@ -17,4 +18,4 @@ exports.getAllUsers = async (req, res, next) => {
         console.error(err.message);
         next(err);
     }
-};
+});
