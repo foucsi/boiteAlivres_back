@@ -5,7 +5,7 @@ const User = require("../../db/models/users")
 exports.getAllUsers = async (req, res, next) => {
     try {
         //on exclut les champs sensible password et inutile
-        const users = await User.find().select("-password -__v");
+        const users = await User.find().select("-password -__v").lean();
         if (!users || users.length === 0) {
             // middleware usersNotFound below
             const err = new Error("Not users in database");
