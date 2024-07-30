@@ -23,5 +23,5 @@ GET http://localhost:3000/bookplaces/getAllBookPlaceByUserId/cca5e5e8-258a-4e34-
 Accept: application/json
 
 ### GET all comments by bookplace id
-GET http://localhost:3000/comments/getAllCommentsByBookPlaceId/665f74c34cebb35fb447e918
+GET http://localhost:3000/comments/getAllCommentsByBookPlace/666ed50be8be8dc0375b7965
 Accept: application/json
