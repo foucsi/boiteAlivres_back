@@ -23,6 +23,7 @@ let photosRouter = require('./routes/photos');
 let featuresRouter = require('./routes/features');
 let favoritesRouter = require('./routes/favorites');
 let testRoutes = require('./routes/testRoutes');
+let sendMsgNodemailer = require('./routes/nodemailer');
 
 let app = express();
 const fileUpload = require("express-fileupload");
@@ -44,6 +45,7 @@ app.use('/photos', photosRouter);
 app.use('/features', featuresRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/test', testRoutes);
+app.use('/signal', sendMsgNodemailer);
 
 app.use(userNotFound);
 app.use(bookPlacesNotFound);
