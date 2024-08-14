@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer')
-const User = require("../../db/models/users")
 
 exports.sendMsg = async(req, res, next) => {
     const {message,email} = req.body
