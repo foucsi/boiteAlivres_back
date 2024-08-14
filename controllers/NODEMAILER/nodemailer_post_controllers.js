@@ -21,7 +21,7 @@ exports.sendMsg = async(req, res, next) => {
 
         const mailOptions = {
             from: email,
-            to: process.env.EMAIL_TEST, // L'adresse où vous recevez les signalements
+            to: process.env.EMAIL_TEST,
             subject: 'Nouveau signalement',
             text: message,
         };
