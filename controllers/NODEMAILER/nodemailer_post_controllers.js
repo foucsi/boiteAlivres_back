@@ -25,7 +25,7 @@ exports.sendMsg = async(req, res, next) => {
         };
 
         await transporter.sendMail(mailOptions);
-        res.status(200).send('Signalement envoyé avec succès.');
+        res.status(200).json({result: true, message: "Message sent"});
     }catch (err){
         console.error(err)
         next(err)
