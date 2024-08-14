@@ -1,4 +1,3 @@
-const Msg = require("../../db/models/signalMsgs")
 const nodemailer = require('nodemailer')
 const User = require("../../db/models/users")
 
