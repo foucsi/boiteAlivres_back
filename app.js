@@ -8,6 +8,7 @@ const bookPlacesNotFound = require('./middlewares/bookPlacesNotFound');
 const commentsNotFound = require('./middlewares/commentsNotFound');
 const featuresNotFound = require('./middlewares/featuresNotFound');
 const favoritesNotFound = require('./middlewares/favoritesNotFound');
+const msgOrEmailMissing = require('./middlewares/msgOrEmailMissing');
 const errorHandler = require("./middlewares/errorHandler");
 
 let path = require('path');
@@ -49,6 +50,7 @@ app.use(bookPlacesNotFound);
 app.use(commentsNotFound);
 app.use(featuresNotFound);
 app.use(favoritesNotFound);
+app.use(msgOrEmailMissing);
 
 //Warning, this generic middlewares should be the last one
 app.use(errorHandler);
