@@ -1,10 +1,10 @@
 const nodemailer = require('nodemailer')
 
 exports.sendMsg = async(req, res, next) => {
-    const {message,email} = req.body
+    const {message,email, bookPlaceId} = req.body
 
-    if(!message || !email){
-        const error = new Error("Message or email is missing")
+    if(!message){
+        const error = new Error("Message is missing")
         return next(error)
     }
 
@@ -17,11 +17,18 @@ exports.sendMsg = async(req, res, next) => {
             }
         });
 
+        const msg = `🚨 *Problème signalé !*\n\n` +
+            `📧 *Email de l'expéditeur :* ${email}\n` +
+            `📚 *Boîte à livres :* ${bookPlaceId}\n\n` +
+            `💬 *Message :*\n"${message}"\n\n` +
+            `🙏 *Merci de traiter ce problème dès que possible.*`;
+
+
         const mailOptions = {
             from: email,
             to: process.env.EMAIL_TEST,
             subject: 'Nouveau signalement',
-            text: message,
+            text: msg,
         };
 
         await transporter.sendMail(mailOptions);
