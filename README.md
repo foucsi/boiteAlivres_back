@@ -1,5 +1,7 @@
 # 📦 **Server Backend**
 
+## Readme en cours de rédaction...
+
 Bienvenue dans le dépôt du serveur backend de notre application ! 🚀 Ce backend est construit avec Node.js et Express, et il gère toute la logique serveur, y compris les APIs, la gestion des utilisateurs, l'authentification, le traitement d'images, et bien plus encore.
 
 ## 📑 **Table des Matières**
@@ -21,8 +23,3 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 - [Node.js](https://nodejs.org/) (version 14 ou supérieure)
 - [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-## ⚙️ **Installation**
-
-1. Clonez ce dépôt sur votre machine locale :
-   ```bash
-   git clone https://github.com/votre-utilisateur/votre-repo.git
