@@ -1,7 +1,7 @@
 const User = require("../../db/models/users");
 const Comment = require("../../db/models/comments");
 
-// delete comment
+// delete comment BY commentId AND uniqueId
 
 exports.deleteComment = async (req, res, next) => {
     const {uniqueId} = req.params;
