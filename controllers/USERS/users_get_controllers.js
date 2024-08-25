@@ -16,3 +16,17 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
         const usersPremium = users.filter(user => user.premium === true);
         return res.json({ result: true, users: users, usersPremium: usersPremium });
 });
+
+
+//INFO BY USER
+
+exports.infoByUser = asyncHandler(async (req, res, next) => {
+    const {id} = req.params;
+    const user = await User.findById(id).select("-password -__v").lean();
+    if (!users || users.length === 0) {
+        // middleware usersNotFound below
+        const err = new Error("Not users in database");
+        return next(err);
+    }
+    return res.json({ result: true, user: user });
+}
