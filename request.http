@@ -27,4 +27,4 @@ GET http://localhost:3000/comments/getAllCommentsByBookPlace/666ed50be8be8dc0375
 Accept: application/json
 
 ### GET USER INFO BY ID
-GET http://localhost:3000/users/infoByUser/cca5e5e8-258a-4e34-9019-1d4d8f40b5d2
+GET http://localhost:3000/users/infoByUser/665b77d9eec521f4d13c8c8c
