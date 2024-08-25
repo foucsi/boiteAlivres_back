@@ -29,4 +29,4 @@ exports.infoByUser = asyncHandler(async (req, res, next) => {
         return next(err);
     }
     return res.json({ result: true, user: user });
-}
+})
