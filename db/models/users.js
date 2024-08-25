@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-// df Schema db
-
 const UserSchema = new mongoose.Schema({
     username: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
