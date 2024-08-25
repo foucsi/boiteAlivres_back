@@ -24,7 +24,6 @@ exports.infoByUser = asyncHandler(async (req, res, next) => {
     const {id} = req.params;
     const user = await User.findById(id).select("-password -__v").lean();
     if (!user || user.length === 0) {
-        // middleware usersNotFound below
         const err = new Error("Not users in database");
         return next(err);
     }
