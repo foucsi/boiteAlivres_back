@@ -17,7 +17,6 @@ exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
 })
 
 //show bookPlace by id
-
 exports.getAllBookPlaceByUserId = asyncHandler(async (req, res, next) => {
     const { uniqueId } = req.params
     const user = await User.findOne({uniqueId})
