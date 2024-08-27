@@ -1,6 +1,5 @@
 const BookPlace = require("../../db/models/bookPlaces");
 const User = require("../../db/models/users");
-
 const asyncHandler = require("express-async-handler");
 
 //GET all bookPlaces if validation is true
