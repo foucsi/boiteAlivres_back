@@ -4,11 +4,10 @@ const BookPlace = require("../../db/models/bookPlaces");
 const asyncHandler = require("express-async-handler");
 
 // Add a new bookPlaces
-exports.addBookPlace = async (req, res, next) => {
+exports.addBookPlace =asyncHandler( async (req, res, next) => {
     const {uniqueId}= req.params
     // const {name,street,region,postalCode} = address
     const {latitude,longitude,description,adress} = req.body
-    try{
         const user = await User.findOne({uniqueId})
         if(!user){
             const err = new Error("User not found")
@@ -23,8 +22,4 @@ exports.addBookPlace = async (req, res, next) => {
         })
         const savedBookPlace = await newBookPlace.save()
         return res.json({result:true,bookPlace:savedBookPlace})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
