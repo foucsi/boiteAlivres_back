@@ -1,6 +1,8 @@
 const User = require("../../db/models/users");
 const BookPlace = require("../../db/models/bookPlaces");
 
+const asyncHandler = require("express-async-handler");
+
 // Add a new bookPlaces
 exports.addBookPlace = async (req, res, next) => {
     const {uniqueId}= req.params
