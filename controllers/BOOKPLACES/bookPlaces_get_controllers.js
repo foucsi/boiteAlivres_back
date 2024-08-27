@@ -14,15 +14,13 @@ exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
             return next(err)
         }
         return res.json({result:true,bookPlaces:bookPlaces})
-
 })
 
 //show bookPlace by id
 
-exports.getAllBookPlaceByUserId = async (req, res, next) => {
+exports.getAllBookPlaceByUserId = asyncHandler(async (req, res, next) => {
     const { uniqueId } = req.params
-    try{
-        const user = await User.findOne({uniqueId})
+    const user = await User.findOne({uniqueId})
         if(!user){
             const err = new Error("User not found")
             return next(err)
@@ -33,8 +31,4 @@ exports.getAllBookPlaceByUserId = async (req, res, next) => {
             return next(err)
         }
         return res.json({result:true,bookPlaces:bookPlaces})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
