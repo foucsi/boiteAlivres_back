@@ -14,7 +14,6 @@ exports.updateBookPlace = asyncHandler( async (req, res, next) => {
 })
 
 //update description of bookPlace
-
 exports.updateDescription = async (req, res, next) => {
     const {bookPlaceId}=req.params;
     const {description}=req.body;
