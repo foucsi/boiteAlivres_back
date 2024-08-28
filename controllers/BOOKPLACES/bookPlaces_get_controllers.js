@@ -3,7 +3,6 @@ const User = require("../../db/models/users");
 const asyncHandler = require("express-async-handler");
 
 //GET all bookPlaces if validation is true
-
 exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
         const bookPlaces = await BookPlace.find().populate("addedBy").select("-adress").lean()
         // const filteredBookPlaces = bookPlaces.filter(bookPlace => bookPlace.validation === true)
