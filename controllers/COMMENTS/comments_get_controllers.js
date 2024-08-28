@@ -1,19 +1,15 @@
 const Comment = require("../../db/models/comments");
 const BookPlace = require("../../db/models/bookPlaces");
+const asyncHandler = require("../../middlewares/asyncHandler");
 
-exports.getAllComments = async (req, res, next) => {
-    try{
+exports.getAllComments = asyncHandler( async (req, res, next) => {
         const comments = await Comment.find().populate('added_by');
         if(!comments || comments.length === 0){
             const err = new Error("Not comments in database");
             return next(err)
         }
         return res.status(200).json({result: true, comments:comments})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
 
 exports.getAllCommentsByBookPlace = async (req, res, next) => {
     const {bookPlaceId} = req.params;
