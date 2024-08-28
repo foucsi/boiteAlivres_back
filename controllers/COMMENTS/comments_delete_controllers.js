@@ -1,12 +1,12 @@
 const User = require("../../db/models/users");
 const Comment = require("../../db/models/comments");
+const asyncHandler = require("express-async-handler");
 
 // delete comment
 
-exports.deleteComment = async (req, res, next) => {
+exports.deleteComment = asyncHandler(async (req, res, next) => {
     const {uniqueId} = req.params;
     const {commentId} = req.body;
-    try{
         const user = await User.findOne({uniqueId});
         if(!user) {
             const err = new Error("User not found");
@@ -23,8 +23,4 @@ exports.deleteComment = async (req, res, next) => {
         }
         await Comment.findByIdAndDelete({_id: commentId});
         return res.status(200).json({result: true, message: "Comment deleted successfully"})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
