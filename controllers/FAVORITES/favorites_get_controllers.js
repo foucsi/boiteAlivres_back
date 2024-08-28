@@ -55,9 +55,8 @@ exports.getFavoritesByUserId = asyncHandler( async (req, res, next) => {
         return res.status(200).json({result: true, favorite: existingFavorite})
 })
 
-exports.getFavorites = async (req, res, next) => {
+exports.getFavorites = asyncHandler( async (req, res, next) => {
     const {uniqueId} = req.params
-    try{
         const existingUser = await User.findOne({uniqueId})
         if(!existingUser){
             const err = new Error("User not found")
@@ -69,8 +68,4 @@ exports.getFavorites = async (req, res, next) => {
             return next(err)
         }
         return res.status(200).json({result: true, favorites:favorites})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
