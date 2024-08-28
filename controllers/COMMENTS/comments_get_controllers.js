@@ -11,9 +11,8 @@ exports.getAllComments = asyncHandler( async (req, res, next) => {
         return res.status(200).json({result: true, comments:comments})
 })
 
-exports.getAllCommentsByBookPlace = async (req, res, next) => {
+exports.getAllCommentsByBookPlace = asyncHandler( async (req, res, next) => {
     const {bookPlaceId} = req.params;
-    try{
         const bookPlace = await BookPlace.findById({_id: bookPlaceId});
         if(!bookPlace){
             const err = new Error("BookPlace not found");
@@ -26,8 +25,4 @@ exports.getAllCommentsByBookPlace = async (req, res, next) => {
             return next(err)
         }
         return res.status(200).json({result: true, comments:comments})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
