@@ -1,6 +1,7 @@
 const Favorite = require("../../db/models/favorites")
 const User = require("../../db/models/users")
 const BookPlace = require("../../db/models/bookPlaces")
+const asyncHandler = require("express-async-handler")
 //
 // exports.getFavoritesByUserId = async (req, res, next) => {
 //     const {uniqueId, bookPlaceId} = req.params
@@ -29,9 +30,8 @@ const BookPlace = require("../../db/models/bookPlaces")
 //     }
 // }
 
-exports.getFavoritesByUserId = async (req, res, next) => {
+exports.getFavoritesByUserId = asyncHandler( async (req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params
-    try {
         const [existingUser, existingBookPlace] = await Promise.all([
             User.findOne({uniqueId}),
             BookPlace.findById(bookPlaceId)
@@ -53,11 +53,7 @@ exports.getFavoritesByUserId = async (req, res, next) => {
             return next(err)
         }
         return res.status(200).json({result: true, favorite: existingFavorite})
-    } catch(err) {
-        console.error(err)
-        next(err)
-    }
-}
+})
 
 exports.getFavorites = async (req, res, next) => {
     const {uniqueId} = req.params
