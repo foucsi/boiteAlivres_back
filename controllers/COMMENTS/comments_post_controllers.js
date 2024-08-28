@@ -1,11 +1,11 @@
 const User = require("../../db/models/users");
 const BookPlace = require("../../db/models/bookPlaces");
 const Comment = require("../../db/models/comments");
+const asyncHandler = require("express-async-handler");
 
-exports.addComments = async (req, res, next) => {
+exports.addComments = asyncHandler( async (req, res, next) => {
     const {uniqueId} = req.params;
     const {bookPlaceId,  comment} = req.body;
-    try{
     const user = await User.findOne({uniqueId});
     if(!user) {
         const err = new Error("User not found");
@@ -22,9 +22,5 @@ exports.addComments = async (req, res, next) => {
     })
     await newComment.save();
     return res.status(200).json({result: true, comment: newComment})
-    }catch(err){
-        console.error(err)
-        next(err)
-    }
-}
+})
 
