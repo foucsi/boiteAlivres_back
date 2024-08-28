@@ -1,6 +1,6 @@
 const Comment = require("../../db/models/comments");
 const BookPlace = require("../../db/models/bookPlaces");
-const asyncHandler = require("../../middlewares/asyncHandler");
+const asyncHandler = require("express-async-handler");
 
 exports.getAllComments = asyncHandler( async (req, res, next) => {
         const comments = await Comment.find().populate('added_by');
