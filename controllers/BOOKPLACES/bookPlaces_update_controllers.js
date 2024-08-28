@@ -1,21 +1,17 @@
 const BookPlaces = require("../../db/models/bookPlaces");
+const asyncHandler = require("express-async-handler");
 
 
 // change status validation false to true
-exports.updateBookPlace = async (req, res, next) => {
+exports.updateBookPlace = asyncHandler( async (req, res, next) => {
     const {bookPlaceId}=req.params;
-        try{
         const bookPlace = await BookPlaces.findByIdAndUpdate(bookPlaceId, {validation: true}, {new: true});
             if(!bookPlace) {
                 const error = new Error("BookPlace not found");
                 return next(error);
             }
         res.status(200).json({result:true, message: "BookPlace updated successfully", bookPlace: bookPlace});
-        }catch(err){
-            console.error(err);
-            next(err)
-    }
-}
+})
 
 //update description of bookPlace
 
