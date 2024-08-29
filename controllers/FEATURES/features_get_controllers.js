@@ -1,4 +1,5 @@
 const Feature = require("../../db/models/features")
+const asyncHandler = require("express-async-handler");
 
 exports.getAllFeatures = async (req, res, next) => {
     try{
