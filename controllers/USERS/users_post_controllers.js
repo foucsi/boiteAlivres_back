@@ -5,12 +5,13 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const uuidv4 = require("uuid").v4;
 
+const asyncHandler = require("express-async-handler");
+
 //login User
-exports.loginUser = async (req, res, next) => {
+exports.loginUser = asyncHandler( async (req, res, next) => {
     if (!checkBody(req.body, ["email", "password"])) {
         return res.status(400).json({ result: false, error: "Missing fields" });
     }
-    try {
         const data = await User.findOne({ email: req.body.email });
         if (data && (await bcrypt.compare(req.body.password, data.password))) {
             // Generate a JWT token for the user
@@ -23,11 +24,7 @@ exports.loginUser = async (req, res, next) => {
             next(error);
             // return res.status(400).json({ result: false, error: "Mot de passe invalide ou email erroné" });
         }
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
-};
+})
 
 // register User
 exports.registerUser = async (req, res, next) => {
