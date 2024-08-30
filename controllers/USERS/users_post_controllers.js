@@ -33,7 +33,6 @@ exports.registerUser = async (req, res, next) => {
         return res.status(400).json({ result: false, error: "Missing fields" });
     }
     try {
-        //user existing by email ?
         const existingUser = await User.findOne({ email });
         if (existingUser || password.length < 6) {
             return res.status(400).json({
