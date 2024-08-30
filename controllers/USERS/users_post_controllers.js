@@ -52,11 +52,9 @@ exports.registerUser = async (req, res, next) => {
         const savedUser = await newUser.save();
         let token;
         try {
-            //creation d'un jeton token avec jwt
             token = jwt.sign({ userId: savedUser._id }, process.env.JWT_SECRET, {
                 expiresIn: "1h",
             });
-            // console.log("Generated token:", token);
         } catch (err) {
             console.error(err);
             return res.status(500).json({
@@ -64,7 +62,6 @@ exports.registerUser = async (req, res, next) => {
                 error: "JWT Error",
             });
         }
-
         return res.json({ result: true, user: savedUser, token });
     } catch (err) {
         console.error(err);
