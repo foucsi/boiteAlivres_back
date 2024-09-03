@@ -26,7 +26,7 @@ exports.loginUser = asyncHandler( async (req, res, next) => {
         }
 })
 
-// register User with jwt token
+// register User
 exports.registerUser = async (req, res, next) => {
     const { username, email, password } = req.body;
     if (!checkBody(req.body, ["username", "password", "email"])) {
