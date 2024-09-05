@@ -7,8 +7,6 @@ const FeatureSchema = new mongoose.Schema({
         enum: ['En conception', 'En développement', 'En test', 'Disponible'],
         default: 'En conception'
     },
-    created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('features', FeatureSchema)
