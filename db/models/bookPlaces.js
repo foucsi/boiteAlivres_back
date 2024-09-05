@@ -21,5 +21,5 @@ const BookPlaceSchema = new mongoose.Schema({
     adress: AddressSchema,
     validation: { type: Boolean, default: false },
     status:{type:"string", default: "pending"},
-})
+}, { timestamps: true });
 module.exports = mongoose.model("bookPlaces", BookPlaceSchema);
