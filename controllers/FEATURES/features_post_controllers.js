@@ -1,6 +1,7 @@
 const Feature = require("../../db/models/features")
 const asyncHandler = require("express-async-handler");
 
+// post a new feature
 exports.addFeature = asyncHandler( async (req, res, next) => {
     const {feature, description} = req.body
         const newFeature = new Feature({
