@@ -16,7 +16,6 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
 
 
 //INFO BY USER
-
 exports.infoByUser = asyncHandler(async (req, res, next) => {
     const {id} = req.params;
     //hydrating result code with .lean()
