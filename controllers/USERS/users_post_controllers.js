@@ -22,7 +22,6 @@ exports.loginUser = asyncHandler( async (req, res, next) => {
         } else {
             const error = new Error("Mot de passe invalide ou email erroné");
             next(error);
-            // return res.status(400).json({ result: false, error: "Mot de passe invalide ou email erroné" });
         }
 })
 
