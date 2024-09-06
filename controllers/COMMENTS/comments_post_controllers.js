@@ -3,6 +3,7 @@ const BookPlace = require("../../db/models/bookPlaces");
 const Comment = require("../../db/models/comments");
 const asyncHandler = require("express-async-handler");
 
+//add comments
 exports.addComments = asyncHandler( async (req, res, next) => {
     const {uniqueId} = req.params;
     const {bookPlaceId,  comment} = req.body;
