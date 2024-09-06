@@ -12,6 +12,7 @@ exports.getAllComments = asyncHandler( async (req, res, next) => {
         return res.status(200).json({result: true, comments:comments})
 })
 
+//get all comments by bookPlaceId
 exports.getAllCommentsByBookPlace = asyncHandler( async (req, res, next) => {
     const {bookPlaceId} = req.params;
         const bookPlace = await BookPlace.findById({_id: bookPlaceId});
