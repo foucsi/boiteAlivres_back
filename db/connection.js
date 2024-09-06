@@ -10,4 +10,4 @@ const connectDb = async ()=>{
     }
 }
 
-connectDb()
+connectDb();
