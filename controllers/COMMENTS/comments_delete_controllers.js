@@ -3,7 +3,6 @@ const Comment = require("../../db/models/comments");
 const asyncHandler = require("express-async-handler");
 
 // delete comment
-
 exports.deleteComment = asyncHandler(async (req, res, next) => {
     const {uniqueId} = req.params;
     const {commentId} = req.body;
