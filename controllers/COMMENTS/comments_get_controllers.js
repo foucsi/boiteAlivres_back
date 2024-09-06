@@ -2,6 +2,7 @@ const Comment = require("../../db/models/comments");
 const BookPlace = require("../../db/models/bookPlaces");
 const asyncHandler = require("express-async-handler");
 
+//get all comments
 exports.getAllComments = asyncHandler( async (req, res, next) => {
         const comments = await Comment.find().populate('added_by');
         if(!comments || comments.length === 0){
