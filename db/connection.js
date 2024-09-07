@@ -9,5 +9,4 @@ const connectDb = async ()=>{
         console.error(error);
     }
 }
-
 connectDb();
