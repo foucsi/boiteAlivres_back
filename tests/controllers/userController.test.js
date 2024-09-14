@@ -1,4 +1,4 @@
-const getAllUsers = require('../../controllers/USERS/users_get_controllers').getAllUsers;
+const getAllUsers = require('../../users/controllers/users_get_controllers').getAllUsers;
 const User = require('../../db/models/users');
 
 jest.mock('../../db/models/users');
