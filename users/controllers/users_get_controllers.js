@@ -3,7 +3,6 @@ const asyncHandler = require("express-async-handler")
 
 //GET ALL USERS
 
-//Utilisation de async-handler pour gérer les erreurs et eviter les bloc try catch
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
         const users = await User.find().select("-password -__v").lean();
         if (!users || users.length === 0) {
