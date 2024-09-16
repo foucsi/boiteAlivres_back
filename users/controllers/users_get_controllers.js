@@ -2,7 +2,6 @@ const User = require("../../db/models/users")
 const asyncHandler = require("express-async-handler")
 
 //GET ALL USERS
-
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
         const users = await User.find().select("-password -__v").lean();
         if (!users || users.length === 0) {
