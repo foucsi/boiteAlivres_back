@@ -22,5 +22,6 @@ exports.infoByUser = asyncHandler(async (req, res, next) => {
         const err = new Error("Not users in database");
         return next(err);
     }
-    return res.json({ result: true, user: user });
+    // return res.json({ result: true, user: user });
+    return sendResponse(res, 200, { user }, "User info");
 })
