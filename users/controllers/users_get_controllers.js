@@ -9,7 +9,8 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
             return next(err);
         }
         const usersPremium = users.filter(user => user.premium === true);
-        return res.json({ result: true, users: users, usersPremium: usersPremium });
+        // return res.json({ result: true, users: users, usersPremium: usersPremium });
+    return sendResponse(res, 200, { users, usersPremium }, "All users");
 });
 
 
