@@ -30,5 +30,6 @@ exports.getAllBookPlaceByUserId = asyncHandler(async (req, res, next) => {
             const err = new Error("Not bookPlaces in database")
             return next(err)
         }
-        return res.json({result:true,bookPlaces:bookPlaces})
+        return sendResponse((res, 200, {bookPlaces}, "All bookPlaces by user"))
+        // return res.json({result:true,bookPlaces:bookPlaces})
 })
