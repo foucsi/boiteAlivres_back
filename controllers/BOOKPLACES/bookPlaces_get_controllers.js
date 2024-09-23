@@ -2,6 +2,8 @@ const BookPlace = require("../../db/models/bookPlaces");
 const User = require("../../db/models/users");
 const asyncHandler = require("express-async-handler");
 
+const {sendResponse} = require("../../utils/sendReponse")
+
 //GET all bookPlaces if validation is true
 exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
         const bookPlaces = await BookPlace.find().populate("addedBy").select("-adress").lean()
@@ -11,7 +13,8 @@ exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
             const err = new Error("BookPlaces not found")
             return next(err)
         }
-        return res.json({result:true,bookPlaces:bookPlaces})
+        return sendResponse(res, 200, {bookPlaces}, "All bookPlaces")
+        // return res.json({result:true,bookPlaces:bookPlaces})
 })
 
 // get all bookPlace by userId
