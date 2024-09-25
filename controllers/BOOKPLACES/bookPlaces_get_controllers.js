@@ -14,7 +14,6 @@ exports.getAllBookPlaces = asyncHandler( async (req, res, next) => {
             return next(err)
         }
         return sendResponse(res, 200, {bookPlaces}, "All bookPlaces")
-        // return res.json({result:true,bookPlaces:bookPlaces})
 })
 
 // get all bookPlace by userId
@@ -31,5 +30,4 @@ exports.getAllBookPlaceByUserId = asyncHandler(async (req, res, next) => {
             return next(err)
         }
         return sendResponse((res, 200, {bookPlaces}, "All bookPlaces by user"))
-        // return res.json({result:true,bookPlaces:bookPlaces})
 })
