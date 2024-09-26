@@ -12,5 +12,5 @@ exports.addFeature = asyncHandler( async (req, res, next) => {
         })
         await newFeature.save();
         return sendResponse(res, 200, {feature: newFeature}, "Feature added successfully")
-        return res.status(200).json({result: true, feature: newFeature})
+        // return res.status(200).json({result: true, feature: newFeature})
 })
