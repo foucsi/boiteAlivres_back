@@ -11,5 +11,5 @@ exports.getAllFeatures = asyncHandler( async (req, res, next) => {
             return next(error)
         }
         return sendResponse(res, 200, {features}, "Features found")
-        res.status(200).json({result: true, features: features})
+        // res.status(200).json({result: true, features: features})
 })
