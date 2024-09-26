@@ -70,5 +70,6 @@ exports.getFavorites = asyncHandler( async (req, res, next) => {
             const err = new Error("Not favorites in database")
             return next(err)
         }
-        return res.status(200).json({result: true, favorites:favorites})
+        return sendResponse(res, 200, {favorites}, "All favorites")
+        // return res.status(200).json({result: true, favorites:favorites})
 })
