@@ -1,7 +1,6 @@
 // utils/sendResponse.js
 
 /**
- * Envoie une réponse JSON standardisée.
  * @param {Object} res - L'objet de réponse Express.
  * @param {number} statusCode - Le code de statut HTTP.
  * @param {Object} [data={}] - Les données à inclure dans la réponse.
