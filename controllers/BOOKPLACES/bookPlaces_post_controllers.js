@@ -24,5 +24,5 @@ exports.addBookPlace =asyncHandler( async (req, res, next) => {
         })
         const savedBookPlace = await newBookPlace.save()
         return sendResponse(res,201,{bookPlace:savedBookPlace},"BookPlace added successfully")
-        return res.json({result:true,bookPlace:savedBookPlace})
+        // return res.json({result:true,bookPlace:savedBookPlace})
 })
