@@ -3,6 +3,8 @@ const BookPlace = require("../../db/models/bookPlaces");
 
 const asyncHandler = require("express-async-handler");
 
+const {sendResponse} = require("../../utils/sendReponse");
+
 // Add a new bookPlaces
 exports.addBookPlace =asyncHandler( async (req, res, next) => {
     const {uniqueId}= req.params
@@ -21,5 +23,6 @@ exports.addBookPlace =asyncHandler( async (req, res, next) => {
             adress
         })
         const savedBookPlace = await newBookPlace.save()
+        return sendResponse(res,201,{bookPlace:savedBookPlace},"BookPlace added successfully")
         return res.json({result:true,bookPlace:savedBookPlace})
 })
