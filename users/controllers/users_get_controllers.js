@@ -8,7 +8,6 @@ const {errorResponses}= require("../../utils/errorResponses")
 /**
  * Get all users with optional filtering and pagination
  * @route GET /api/users
- * @access Private (Admin only)
  */
 
 
