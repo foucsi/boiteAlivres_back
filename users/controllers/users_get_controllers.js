@@ -18,7 +18,7 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
         const query = premium ? { premium: premium === 'true' } : {};
 
         const users = await User.find().select("-password -__v").lean();
-        if (!users || users.length === 0) {
+        if (users.length === 0) {
             return errorResponses(res, 404, "Not users in database");
         }
         const usersPremium = users.filter(user => user.premium === true);
