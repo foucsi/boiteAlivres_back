@@ -37,9 +37,7 @@ exports.getFavorites = asyncHandler( async (req, res, next) => {
         }
         const favorites = await Favorite.find({user: existingUser._id}).populate('bookPlace')
         if(!favorites){
-            const err = new Error("Not favorites in database")
-            return next(err)
+            return errorResponse(res, 404, "Favorites not found")
         }
         return sendResponse(res, 200, {favorites}, "All favorites")
-        // return res.status(200).json({result: true, favorites:favorites})
 })
