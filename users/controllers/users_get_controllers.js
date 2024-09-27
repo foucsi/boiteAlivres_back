@@ -13,11 +13,12 @@ const {errorResponses}= require("../../utils/errorResponses")
 
 //GET ALL USERS
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
-        const {limit=10} = req.query;
+        const {page=1,limit=10} = req.query;
+        const skip = (page - 1) * limit;
 
         const query = premium ? { premium: premium === 'true' } : {};
 
-        const users = await User.find().select("-password -__v").limit(Number(limit)).lean();
+        const users = await User.find().select("-password -__v").skip(skip).limit(Number(limit)).lean();
         if (users.length === 0) {
             return errorResponses(res, 404, "Not users in database");
         }
