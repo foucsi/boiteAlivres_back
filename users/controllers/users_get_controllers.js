@@ -31,7 +31,7 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
 exports.infoByUser = asyncHandler(async (req, res, next) => {
     const {id} = req.params;
     const user = await User.findById(id).select("-password -__v").lean();
-    if (!user || user.length === 0) {
+    if (user.length === 0) {
         return errorResponses(res, 404, "User not found");
     }
     return sendResponse(res, 200, { user }, "User info");
