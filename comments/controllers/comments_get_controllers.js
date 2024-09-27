@@ -29,5 +29,6 @@ exports.getAllCommentsByBookPlace = asyncHandler( async (req, res, next) => {
             const err = new Error("Not comments in database");
             return next(err)
         }
-        return res.status(200).json({result: true, comments:comments})
+        return sendResponse(res,200,{comments}, "All comments by bookPlace")
+        // return res.status(200).json({result: true, comments:comments})
 })
