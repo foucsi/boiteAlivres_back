@@ -3,6 +3,7 @@ const User = require("../../db/models/users")
 const BookPlace = require("../../db/models/bookPlaces")
 const asyncHandler = require("express-async-handler")
 
+//utils send response and error response
 const {sendResponse} = require("../../utils/sendReponse")
 const {errorResponse} = require("../../utils/errorResponses")
 
