@@ -23,11 +23,9 @@ exports.getFavoritesByUserId = asyncHandler( async (req, res, next) => {
             user: existingUser._id
         })
         if (!existingFavorite) {
-            const err = new Error("Favorite not found")
-            return next(err)
+            return errorResponse(res, 404, "Favorite not found")
         }
         return sendResponse(res, 200, {favorite: existingFavorite}, "Favorite found")
-        // return res.status(200).json({result: true, favorite: existingFavorite})
 })
 
 exports.getFavorites = asyncHandler( async (req, res, next) => {
