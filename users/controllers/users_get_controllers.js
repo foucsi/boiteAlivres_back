@@ -5,6 +5,12 @@ const asyncHandler = require("express-async-handler")
 const {sendResponse}= require("../../utils/sendReponse")
 const {errorResponses}= require("../../utils/errorResponses")
 
+/**
+ * Get all users with optional filtering and pagination
+ * @route GET /api/users
+ * @access Private (Admin only)
+ */
+
 
 //GET ALL USERS
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
