@@ -4,6 +4,7 @@ const BookPlace = require("../../db/models/bookPlaces")
 const asyncHandler = require("express-async-handler")
 
 const {sendResponse} = require("../../utils/sendReponse")
+const {errorResponse} = require("../../utils/errorResponses")
 
 exports.getFavoritesByUserId = asyncHandler( async (req, res, next) => {
     const {uniqueId, bookPlaceId} = req.params
@@ -12,8 +13,7 @@ exports.getFavoritesByUserId = asyncHandler( async (req, res, next) => {
             BookPlace.findById(bookPlaceId)
         ])
         if (!existingUser) {
-            const err = new Error("User not found")
-            return next(err)
+            return errorResponse(res, 404, "User not found")
         }
         if (!existingBookPlace) {
             const err = new Error("BookPlace not found")
