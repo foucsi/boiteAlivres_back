@@ -2,6 +2,8 @@ const Comment = require("../../db/models/comments");
 const BookPlace = require("../../db/models/bookPlaces");
 const asyncHandler = require("express-async-handler");
 
+const {sendResponse} = require("../../utils/sendReponse");
+
 //get all comments
 exports.getAllComments = asyncHandler( async (req, res, next) => {
         const comments = await Comment.find().populate('added_by');
@@ -9,7 +11,8 @@ exports.getAllComments = asyncHandler( async (req, res, next) => {
             const err = new Error("Not comments in database");
             return next(err)
         }
-        return res.status(200).json({result: true, comments:comments})
+        return sendResponse(res,200,{comments}, "All comments")
+        // return res.status(200).json({result: true, comments:comments})
 })
 
 //get all comments by bookPlaceId
