@@ -15,7 +15,6 @@ const {errorResponses}= require("../../utils/errorResponses")
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
         const {page=1,limit=10} = req.query;
         const skip = (page - 1) * limit;
-
         const query = premium ? { premium: premium === 'true' } : {};
 
         const users = await User.find().select("-password -__v").skip(skip).limit(Number(limit)).lean();
