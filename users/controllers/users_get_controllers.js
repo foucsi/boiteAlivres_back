@@ -30,7 +30,10 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
 //INFO BY USER
 exports.infoByUser = asyncHandler(async (req, res, next) => {
     const {id} = req.params;
-    const user = await User.findById(id).select("-password -__v").lean();
+    const {page=1,limit=10} = req.query;
+    const skip = (page - 1) * limit;
+
+    const user = await User.findById(id).select("-password -__v").skip(skip).limit(Number(limit)).lean();
     if (user.length === 0) {
         return errorResponses(res, 404, "User not found");
     }
