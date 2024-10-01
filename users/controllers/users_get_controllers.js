@@ -10,6 +10,7 @@ const {errorResponses}= require("../../utils/errorResponses")
  * @route GET /api/users
  * @access Public
  * @returns {Array} users - All users
+ * @returns {Array} usersPremium - All premium users
  */
 
 
